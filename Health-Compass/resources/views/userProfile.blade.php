@@ -5,10 +5,10 @@
 @endsection
 
 @section('content')
-<main class='containers-wrap'>
-    <div class='nutrition'>FOOD/DRINK </div>
-    <div class='sleep'>MOOD/SLEEP </div>
-    <div class='activity'>ACTIVITY </div>
-    <div class='bodyPic'>BODY PIC </div>
-</main>
+    <main class='containers-wrap'>
+        <div class='nutrition container-style'>FOOD/DRINK </div>
+        <div class='sleep container-style'>MOOD/SLEEP </div>
+        <div class='activity container-style'>ACTIVITY </div>
+        <div class='bodyPic container-style'>BODY PIC </div>
+    </main>
 @endsection
