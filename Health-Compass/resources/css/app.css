@@ -39,6 +39,10 @@ nav ul a {
     margin: 0.3rem;
 }
 
+nav ul a:hover {
+    color: rgb(195, 195, 195);
+}
+
 .containers-wrap {
     display: grid;
     grid-template-columns: repeat(12, 1fr);
@@ -49,7 +53,7 @@ nav ul a {
     margin: auto;
 }
 
-.containers-wrap > * {
+.container-style {
     border: 5px solid #3C6255;
     border-radius: 15px;
     background: #EAE7B1;
@@ -77,10 +81,27 @@ nav ul a {
     grid-row:3/7;
 }
 
+.about-container {
+    width: 50%;
+    margin: 5rem auto;
+}
+
+.about-container p {
+    margin: 3rem 3rem 3rem 3rem;
+    text-align: justify;
+    font-size: 1.5rem
+}
+
+#big-letter {
+    font-size: 3rem;
+    letter-spacing: -7px;
+}
+
 footer {
     text-align: center;
     background: #3C6255;
     color: white;
+    margin-top: auto;
 }
 
 footer p {
