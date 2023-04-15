@@ -1,7 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\HomepageController;
+use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\AboutController;
 use App\Http\Controllers\NewDayController;
 use App\Http\Controllers\UserProfileController;
@@ -18,7 +18,11 @@ use App\Http\Controllers\ContactController;
 |
 */
 
-Route::get('/', [HomepageController::class, 'show'])->name('home');
+Route::get('/', [DashboardController::class, 'show'])->name('dashboard');
+Route::post('/submit-sleep', [DashboardController::class, 'handleSleepForm']);
+Route::post('/submit-activity', [DashboardController::class, 'handleActivityForm']);
+
+
 Route::get('/new-day', [NewDayController::class, 'show'])->name('newDay');
 Route::get('/profile', [UserProfileController::class, 'show'])->name('userProfile');
 Route::get('/contact', [ContactController::class, 'show'])->name('contact');
