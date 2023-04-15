@@ -1,3 +1,8 @@
+:root {
+    --logo-color: rgb(4, 209, 4);
+    --button-font: 'Quicksand', sans-serif;
+}   
+
 * {
     margin: 0;
     padding: 0;
@@ -5,7 +10,7 @@
 }
 
 body {
-    background: #A6BB8D;
+    background: #1d1d1d;
     min-height: 100vh;
     display: flex;
     flex-direction: column;
@@ -14,10 +19,6 @@ body {
 header {
     display: flex;
     align-items: center;
-    font-family: 'Montserrat Alternates', sans-serif;
-    color: rgb(2, 145, 2);
-    background: #EAE7B1;
-    border-bottom: 2px solid black;
 }
 
 header img {
@@ -25,22 +26,27 @@ header img {
     margin: 0.5rem 1rem 0.5rem 1rem;
 }
 
+header a {
+    text-decoration: none;
+    font-family: 'Montserrat Alternates', sans-serif;
+    color: var(--logo-color);
+}
+
 nav ul {
-    background: #61876E;
+    border-bottom: 2px solid #61876E;
     display: flex;
     justify-content: space-evenly;
-    border-bottom: 2px solid black;
 }
 
 nav ul a {
     text-decoration: none;
-    color: white;
+    color: var(--logo-color);
     font-size: 1.3rem;
     margin: 0.3rem;
 }
 
 nav ul a:hover {
-    color: rgb(195, 195, 195);
+    color: rgb(255, 255, 255);
 }
 
 .containers-wrap {
@@ -51,50 +57,135 @@ nav ul a:hover {
     max-width: 90%;
     grid-gap: 2rem;
     margin: auto;
+    color: white;
+    margin-top: 8rem;
 }
 
-.container-style {
-    border: 5px solid #3C6255;
+#nutrition {
+    display: flex;
+    justify-content: space-evenly;
+    margin-top: 3rem;
+}
+
+#breakfast, #lunch, #diner {
+    border: 3px solid silver;
+    border-radius: 5px;
+    box-shadow: 0px 0px 3px 0px white;
+    width: 25vw;
+    color:white;
+}
+
+#sleepContainer, #activityContainer, #bodyPicContainer {
+    border: 3px solid skyblue;
+    border-radius: 5px;
+    box-shadow: 0px 0px 12px 0px skyblue;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+#sleepContainer {
+    grid-column:1/4;
+    grid-row:1/4;
+}
+
+.dashboard-forms {
+    display: flex;
+    flex-direction: column;
+    font-size: 1.5rem;
+    color: rgb(142, 211, 238);
+}
+
+.dashboard-forms input {
+    width: 50%;
+    margin:auto;
+    margin-top: 1rem;
+    border-radius: 10px;
+    font-size: 1.2rem;
+    text-align: center;
+}
+
+.dashboard-forms label {
+    margin-top: 1rem;
+}
+
+.dashboard-forms label:last-of-type {
+    font-size: 1.4rem;
+    margin-top: 1.5rem;
+}
+
+.dashboard-forms textarea {
+    width: 80%;
+    margin: auto;
+    resize: none;
+    margin-top: 1rem;
     border-radius: 15px;
-    background: #EAE7B1;
-    color: rgb(2, 145, 2);
-    font-size: 30px;
 }
 
-.nutrition {
-    grid-column:1/13;
-    grid-row:1/3;
+.dashboard-forms button {
+    width: 40%;
+    margin: auto;
+    margin: 2rem auto;
+    font-size: 1.5rem;
+    border-radius: 20px;
+    border: 3px solid skyblue;
+    background:rgb(63, 162, 255);
+    cursor: pointer;
 }
 
-.activity {
-    grid-column:5/13;
-    grid-row:3/5;
+.dashboard-forms button:hover {
+    color: white;
 }
 
-.sleep {
-    grid-column:5/13;
-    grid-row:5/7;
+#activityContainer {
+    grid-column:5/9;
+    grid-row:1/4;
 }
 
-.bodyPic {
-    grid-column:1/5;
-    grid-row:3/7;
+#bodyPicContainer {
+    grid-column:10/13;
+    grid-row:1/4;
+}
+
+#newDay {
+    grid-column:11/13;
+    grid-row:5;
+    border: 2px solid var(--logo-color);
+    border-radius: 15px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 3rem;
+    color: black;
+    background-color: #228402;
+    font-size: 1.4rem;
+    font-family: var(--button-font);
+    font-weight: 1000;
+    cursor: pointer;
+}
+
+#newDay:hover {
+    color: white;
 }
 
 .about-container {
     width: 50%;
     margin: 5rem auto;
+    color: rgb(213, 211, 211);
+    font-family: var(--button-font);
 }
 
 .about-container p {
     margin: 3rem 3rem 3rem 3rem;
     text-align: justify;
-    font-size: 1.5rem
+    font-size: 1.3rem
 }
 
 #big-letter {
     font-size: 3rem;
     letter-spacing: -7px;
+    color: var(--logo-color);
 }
 
 footer {
