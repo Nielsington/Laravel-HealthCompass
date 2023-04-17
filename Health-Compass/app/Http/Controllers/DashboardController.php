@@ -14,15 +14,7 @@ class DashboardController extends Controller
         $sleepData = SleepMood::whereDate('created_at', Carbon::today())->first();
         $activityData = ActivityLog::whereDate('created_at', Carbon::today())->first();
 
-        if ($sleepData && $activityData) {
-            return view('dashboard', ['sleepData'=>$sleepData, 'activityData'=>$activityData]);
-        } elseif ($sleepData) {
-            return view('dashboard', ['sleepData'=>$sleepData]);
-        } elseif ($activityData) {
-            return view('dashboard', ['activityData'=>$activityData]);
-        } else {
-            return view('dashboard');
-        }
+        return view('dashboard', ['sleepData'=>$sleepData, 'activityData'=>$activityData]);
     }
 
     public function handleSleepForm(Request $request) 
