@@ -1,7 +1,7 @@
 <nav>
     <ul>
-        <a href="{{route('dashboard')}}">Dashboard</a>
-        <a href="{{route('contact')}}">Contact</a>
-        <a href="{{route('about')}}">About</a>
+        <li><a href="{{route('dashboard')}}">Dashboard</a></li>
+        <li><a href="{{route('contact')}}">Contact</a></li>
+        <li><a href="{{route('about')}}">About</a></li>
     </ul>
 </nav>
