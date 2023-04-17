@@ -1,10 +1,16 @@
-/* TODO: Make all border radius the same 
+/* 
 TODO: Choose a color pallet
 TODO: Choose a nice font for content  */
 
 :root {
-    --logo-color: rgb(4, 209, 4);
+    /* --logo-color: rgb(4, 209, 4); */
     --button-font: 'Quicksand', sans-serif;
+    --header-color: #07143e;
+    --text-color: #17d589 ;
+    --nav-color: #A7FF83 ;
+    --body-color: #063850 ;
+    --content-font: 'Dongle', sans-serif;
+    --content-font-size: 2.5rem;
 }   
 
 * {
@@ -14,7 +20,7 @@ TODO: Choose a nice font for content  */
 }
 
 body {
-    background: #1d1d1d;
+    background: var(--body-color);
     min-height: 100vh;
     display: flex;
     flex-direction: column;
@@ -23,6 +29,7 @@ body {
 header {
     display: flex;
     align-items: center;
+    background: var(--header-color);
 }
 
 header img {
@@ -33,25 +40,63 @@ header img {
 header a {
     text-decoration: none;
     font-family: 'Montserrat Alternates', sans-serif;
-    color: var(--logo-color);
+    color: var(--nav-color);
 }
 
 nav ul {
-    border-bottom: 2px solid #61876E;
+    border-bottom: 2px solid var(--nav-color);
     display: flex;
     justify-content: space-evenly;
+    background: var(--header-color);
 }
 
 nav ul a {
     text-decoration: none;
-    color: var(--logo-color);
-    font-size: 1.3rem;
-    margin: 0.3rem;
+    color: var(--nav-color);
+    font-family: var(--content-font);
+    font-size: 2.1rem;
+    position: relative;
+    display: inline-block;
 }
 
-nav ul a:hover {
+nav ul li a:hover {
     color: rgb(255, 255, 255);
 }
+
+nav ul li a::before {
+    content: '';
+    position: absolute;
+    top: 20%;
+    left: -20px;
+    width: 0;
+    height: 50%;
+    background-color: var(--nav-color);
+    transform: scaleY(0);
+    transition: transform 0.3s ease-out;
+  }
+  
+  nav ul li a:hover::before {
+    width: 2px;
+    transform: scaleY(1);
+  }
+
+nav ul li a::after {
+    content: '';
+    position: absolute;
+    top: 20%;
+    right: -20px;
+    width: 0;
+    height: 50%;
+    background-color: var(--nav-color);
+    transform: scaleY(0);
+    transition: transform 0.3s ease-out;
+}
+
+nav ul li a:hover::after {
+    width: 2px;
+    transform: scaleY(1);
+  }
+
 
 .containers-wrap {
     display: grid;
@@ -65,7 +110,7 @@ nav ul a:hover {
     margin-top: 8rem;
 }
 
-#nutrition {
+/* #nutrition {
     display: flex;
     justify-content: space-evenly;
     margin-top: 3rem;
@@ -77,46 +122,86 @@ nav ul a:hover {
     box-shadow: 0px 0px 3px 0px white;
     width: 25vw;
     color:white;
-}
+} */
 
 #sleepContainer, #activityContainer, #bodyPicContainer {
-    border: 3px solid skyblue;
-    border-radius: 5px;
-    box-shadow: 0px 0px 12px 0px skyblue;
+    /* border: 3px solid var(--nav-color); */
+    /* border-radius: 5px; */
+    /* box-shadow: 0px 0px 5px 0px var(--nav-color); */
     text-align: center;
     display: flex;
     flex-direction: column;
     justify-content: center;
 }
 
-#sleepContainer {
+#activityContainer {
     grid-column:1/4;
     grid-row:1/4;
+
+    background:
+    linear-gradient(to right, var(--nav-color) 5px, transparent 5px) 0 100%,
+    linear-gradient(to top, var(--nav-color) 5px, transparent 5px) 0 100%,
+    linear-gradient(to left, var(--nav-color) 5px, transparent 5px) 100% 0,
+    linear-gradient(to bottom, var(--nav-color) 5px, transparent 5px) 100% 0,
+    linear-gradient(to right, var(--nav-color) 5px, transparent 5px) 0 0,
+    linear-gradient(to top, var(--nav-color) 5px, transparent 5px) 100% 100%,
+    linear-gradient(to left, var(--nav-color) 5px, transparent 5px) 100% 100%,
+    linear-gradient(to bottom, var(--nav-color) 5px, transparent 5px) 0 0;
+
+    background-repeat: no-repeat;
+    background-size: 3rem 3rem;
 }
+
+#bodyPicContainer {
+    grid-column:5/9;
+    grid-row:1/4;
+}
+
+#sleepContainer {
+    grid-column:10/13;
+    grid-row:1/4;
+
+    background:
+    linear-gradient(to right, var(--nav-color) 5px, transparent 5px) 0 100%,
+    linear-gradient(to top, var(--nav-color) 5px, transparent 5px) 0 100%,
+    linear-gradient(to left, var(--nav-color) 5px, transparent 5px) 100% 0,
+    linear-gradient(to bottom, var(--nav-color) 5px, transparent 5px) 100% 0,
+    linear-gradient(to right, var(--nav-color) 5px, transparent 5px) 0 0,
+    linear-gradient(to top, var(--nav-color) 5px, transparent 5px) 100% 100%,
+    linear-gradient(to left, var(--nav-color) 5px, transparent 5px) 100% 100%,
+    linear-gradient(to bottom, var(--nav-color) 5px, transparent 5px) 0 0;
+
+    background-repeat: no-repeat;
+    background-size: 3rem 3rem;
+
+}
+
+#sleepContainer input,
+#sleepContainer label
+{
+    margin-top: 2rem;
+}
+
 
 .dashboard-forms {
     display: flex;
     flex-direction: column;
     font-size: 1.5rem;
-    color: rgb(142, 211, 238);
+    color: var(--text-color);
 }
 
 .dashboard-forms input {
     width: 50%;
     margin:auto;
-    margin-top: 1rem;
-    border-radius: 10px;
-    font-size: 1.2rem;
+    border-radius: 5px;
+    font-size: 1.1rem;
     text-align: center;
 }
 
 .dashboard-forms label {
     margin-top: 1rem;
-}
-
-.dashboard-forms label:last-of-type {
-    font-size: 1.4rem;
-    margin-top: 1.5rem;
+    font-family: var(--content-font);
+    font-size: var(--content-font-size);
 }
 
 .dashboard-forms textarea {
@@ -124,17 +209,17 @@ nav ul a:hover {
     margin: auto;
     resize: none;
     margin-top: 1rem;
-    border-radius: 15px;
+    border-radius: 5px;
 }
 
 .dashboard-forms button {
     width: 40%;
-    margin: auto;
-    margin: 2rem auto;
-    font-size: 1.5rem;
-    border-radius: 20px;
-    border: 3px solid skyblue;
-    background:rgb(63, 162, 255);
+    margin: 3rem auto;
+    font-size: 2.5rem;
+    border-radius: 5px;
+    font-family: var(--content-font);
+    border: 3px solid var(--nav-color);
+    background:var(--text-color);
     cursor: pointer;
 }
 
@@ -142,27 +227,17 @@ nav ul a:hover {
     color: white;
 }
 
-#activityContainer {
-    grid-column:5/9;
-    grid-row:1/4;
-}
-
-#bodyPicContainer {
-    grid-column:10/13;
-    grid-row:1/4;
-}
-
 #newDay {
     grid-column:11/13;
     grid-row:5;
     border: 2px solid var(--logo-color);
-    border-radius: 15px;
+    border-radius: 5px;
     display: flex;
     justify-content: center;
     align-items: center;
     margin-bottom: 3rem;
     color: black;
-    background-color: #228402;
+    background: var(--nav-color);
     font-size: 1.4rem;
     font-family: var(--button-font);
     font-weight: 1000;
@@ -176,7 +251,7 @@ nav ul a:hover {
 .about-container {
     width: 50%;
     margin: 5rem auto;
-    color: rgb(213, 211, 211);
+    color: rgb(254, 254, 254);
     font-family: var(--button-font);
 }
 
@@ -189,12 +264,14 @@ nav ul a:hover {
 #big-letter {
     font-size: 3rem;
     letter-spacing: -7px;
-    color: var(--logo-color);
+    color: var(--nav-color);
 }
 
 footer {
     text-align: center;
-    background: #3C6255;
+    background: var(--header-color);
+    font-family: var(--content-font);
+    font-size: 1.6rem;
     color: white;
     margin-top: auto;
 }
