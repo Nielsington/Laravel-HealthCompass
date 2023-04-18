@@ -11,8 +11,8 @@ class DashboardController extends Controller
 {
     public function show() 
     {
-        $sleepData = SleepMood::whereDate('created_at', Carbon::today())->first();
-        $activityData = ActivityLog::whereDate('created_at', Carbon::today())->first();
+        $sleepData = $this->fetchSleepData();
+        $activityData = $this->fetchActivityData();
 
         return view('dashboard', ['sleepData'=>$sleepData, 'activityData'=>$activityData]);
     }
@@ -40,5 +40,17 @@ class DashboardController extends Controller
         $activityData->save();
 
         return redirect()->route('dashboard');
+    }
+
+    private function fetchSleepData()
+    {
+        $sleepData = SleepMood::whereDate('created_at', Carbon::today())->first();
+        return $sleepData;
+    }
+
+    private function fetchActivityData()
+    {
+        $activityData = ActivityLog::whereDate('created_at', Carbon::today())->first();
+        return $activityData;
     }
 }
