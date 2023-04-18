@@ -16,7 +16,24 @@
     <div class='containers-wrap'>
         <div id='activityContainer'>
             @if(isset($activityData))
-                <p>Form has been submitted</p>
+                  {{-- <p>Form has been submitted</p> --}}
+                  <div id='activity_stats'>
+                    <div id="activity">
+                        <img src="{{asset('./images/sport.png')}}" alt="sport icon">
+                        <p>{{$activityData->Activity_type}} </p>
+                    </div>
+                    <div id="activityDuration">
+                        <img src="{{asset('./images/stopwatch.png')}}" alt="stopwatch icon">
+                        <p>{{$activityData->Activity_minutes}} minutes</p>
+                    </div>
+                    <div id="kcal">
+                        <img src="{{asset('./images/kcal.png')}}" alt="kcal icon">
+                        <p>{{$activityData->Kcal_burned}} calories burned!</p>
+                    </div>
+                </div>
+                {{-- TODO:if notes = NULL then <p>No notes to report</p> --}}
+                <img id="notes" src="{{asset('./images/notes.png')}}" alt="notes icon">
+                <p id='activityReport'>{{$activityData->Notes}}</p>
             @else
                 <form class="dashboard-forms" action="/submit-activity" method="POST">
                     @csrf
@@ -39,7 +56,20 @@
 
         <div id='sleepContainer'>
             @if(isset($sleepData))
-                <p>Form has been submitted</p>
+                {{-- <p>Form has been submitted</p> --}}
+                <div id='mood_sleep'>
+                    <div id="mood-container">
+                        <img src="{{asset('./images/mood.png')}}" alt="mood icon">
+                        <p>{{$sleepData->mood}} mood</p>
+                    </div>
+                    <div id="sleepDuration">
+                        <img src="{{asset('./images/sleepDuration.png')}}" alt="sleep duration icon">
+                        <p>{{$sleepData->hours_sleep}} hours of sleep</p>
+                    </div>
+                </div>
+                {{-- TODO:if dream = NULL then <p>No dream to report</p> --}}
+                <img id="dreamCatcherIcon" src="{{asset('./images/dream.png')}}" alt="dream catcher icon">
+                <p id='dreamReport'>{{$sleepData->dream_description}}</p>
             @else
                 <form class="dashboard-forms" action="/submit-sleep" method="POST">
                     @csrf
@@ -55,7 +85,9 @@
             
         </div>
         <div id='newDay'>
-            <p>NEW DAY</p>
+            <form action="/reset" method="post">
+                <button type="submit"><a>RESET</a></button>
+            </form>
         </div>
     </div>
 @endsection
