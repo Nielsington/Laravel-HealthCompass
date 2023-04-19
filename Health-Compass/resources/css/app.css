@@ -1,5 +1,4 @@
 :root {
-    /* --logo-color: rgb(4, 209, 4); */
     --button-font: 'Quicksand', sans-serif;
     --header-color: #07143e;
     --text-color: #17d589 ;
@@ -22,6 +21,8 @@ body {
     flex-direction: column;
 }
 
+/* Header */
+
 header {
     display: flex;
     align-items: center;
@@ -38,6 +39,8 @@ header a {
     font-family: 'Montserrat Alternates', sans-serif;
     color: var(--nav-color);
 }
+
+/* Navigation */
 
 nav ul {
     border-bottom: 2px solid var(--nav-color);
@@ -70,12 +73,12 @@ nav ul li a::before {
     background-color: var(--nav-color);
     transform: scaleY(0);
     transition: transform 0.3s ease-out;
-  }
-  
-  nav ul li a:hover::before {
+}
+
+nav ul li a:hover::before {
     width: 2px;
     transform: scaleY(1);
-  }
+}
 
 nav ul li a::after {
     content: '';
@@ -92,24 +95,233 @@ nav ul li a::after {
 nav ul li a:hover::after {
     width: 2px;
     transform: scaleY(1);
-  }
+}
 
 #flex-wrap {
     display: flex;
 }
 
+/* Activity sidebar */
+
+#activity-container {
+    width: 13vw;
+    min-height: 100vh;
+    border-right: 3px solid var(--nav-color);
+
+    /* background:
+    linear-gradient(to right, var(--nav-color) 5px, transparent 5px) 0 100%,
+    linear-gradient(to top, var(--nav-color) 5px, transparent 5px) 0 100%,
+    linear-gradient(to left, var(--nav-color) 5px, transparent 5px) 100% 0,
+    linear-gradient(to bottom, var(--nav-color) 5px, transparent 5px) 100% 0,
+    linear-gradient(to right, var(--nav-color) 5px, transparent 5px) 0 0,
+    linear-gradient(to top, var(--nav-color) 5px, transparent 5px) 100% 100%,
+    linear-gradient(to left, var(--nav-color) 5px, transparent 5px) 100% 100%,
+    linear-gradient(to bottom, var(--nav-color) 5px, transparent 5px) 0 0; */
+
+    /* background-repeat: no-repeat;
+    background-size: 3rem 3rem; */
+}
+
+#activity-container img {
+    width: 3vw;
+}
+
+#activity_stats {
+    border-bottom: 2px solid var(--nav-color);
+}
+
+#activity {
+    margin-top: 2rem;
+}
+
+#activity,
+#activityDuration,
+#kcalBurned {
+    display: flex;
+    margin-left: 2rem;
+    margin-bottom: 2rem;
+    font-family: var(--content-font);
+    font-size: var(--content-font-size);
+} 
+
+#activity p,
+#activityDuration p,
+#kcalBurned p,
+#notes {
+    margin: auto 1rem;
+} 
+
+#addActivity {
+    margin: auto;
+    display: block;
+    margin-top: 3rem;
+}
+
+/* Main */
 
 #grid-container {
     display: grid;
     grid-template-columns: repeat(12, 1fr);
-    grid-auto-rows: minmax(100px, auto);
-    min-width: 85vw;
-    max-width: 85vw;
-    grid-gap: 2rem;
+    grid-auto-rows: minmax(5rem, auto);
+    min-width: 80vw;
+    max-width: 80vw;
+    grid-gap: 4.5rem;
     margin: auto;
     color: white;
     margin-top: 2rem;
 }
+
+/* Weather widget */
+
+#weather-widget {
+    outline: 2px solid red;
+    grid-column:1/3;
+    grid-row:1;
+}
+
+/* Step count */
+
+#stepCount {
+    outline: 2px solid red;
+    grid-column:1/3;
+    grid-row:2;
+}
+/* Kcal count */
+
+#kcalCount {
+    outline: 2px solid red;
+    grid-column:1/3;
+    grid-row:3/5;
+}
+
+/* Mood */
+
+#mood-container {
+    outline: 2px solid green;
+    grid-column:10/13;
+    grid-row:1;
+}
+
+#mood-container img {
+    width: 3vw;
+    display: block;
+    margin: 2rem auto ;
+    cursor: pointer;
+}
+
+#mood-container form {
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+
+}
+
+#mood-container label {
+    font-family: var(--content-font);
+    font-size: var(--content-font-size);
+    color: var(--text-color);
+}
+
+#mood-container input {
+    text-align: center;
+    width: 70%;
+    margin: 0 auto 2rem ;
+    font-size: 1.5rem;
+}
+
+#mood-container button {
+    width: 70%;
+    margin: auto;
+    margin-bottom: 2rem;
+    font-size: 1.5rem;
+    border: 3px solid var(--header-color);
+    background: var(--nav-color);
+    cursor: pointer;
+    color: var(--header-color); 
+}
+
+#mood-container button:hover {
+    color: var(--nav-color);
+    background-color: var(--header-color);
+    border: 3px solid var(--nav-color);
+}
+
+/* Sleep */
+
+#sleep-container {
+    display: flex;
+    flex-direction: column;
+    grid-column:10/13;
+    grid-row:2/4;
+
+    background:
+    linear-gradient(to right, var(--nav-color) 5px, transparent 5px) 0 100%,
+    linear-gradient(to top, var(--nav-color) 5px, transparent 5px) 0 100%,
+    linear-gradient(to left, var(--nav-color) 5px, transparent 5px) 100% 0,
+    linear-gradient(to bottom, var(--nav-color) 5px, transparent 5px) 100% 0,
+    linear-gradient(to right, var(--nav-color) 5px, transparent 5px) 0 0,
+    linear-gradient(to top, var(--nav-color) 5px, transparent 5px) 100% 100%,
+    linear-gradient(to left, var(--nav-color) 5px, transparent 5px) 100% 100%,
+    linear-gradient(to bottom, var(--nav-color) 5px, transparent 5px) 0 0;
+
+    background-repeat: no-repeat;
+    background-size: 3rem 3rem;
+}
+
+#sleep-container img {
+    width: 4vw;
+    margin-left: 2rem;
+
+}
+
+#sleepDuration {
+    display:flex;
+    margin-bottom: 3rem;
+    font-family: var(--content-font);
+    font-size: var(--content-font-size);
+}
+
+#sleepDuration p {
+    margin: auto;
+    margin-left: 2rem;
+}
+
+#dreamCatcherIcon {
+    align-self: center;
+    margin: 2rem auto;
+}
+
+#dreamReport {
+    font-family: var(--content-font);
+    font-size: 2rem;
+    text-align: justify;
+    margin: 1.5rem;
+    max-height: 15vw;
+    max-width: 20vw;
+    overflow: auto;
+    padding-right: 1rem;
+    padding-bottom: 2rem;
+}
+
+#dreamReport::-webkit-scrollbar {
+    width: 5px;
+}
+
+#dreamReport::-webkit-scrollbar-track {
+    background: var(--body-color); 
+}
+
+#dreamReport::-webkit-scrollbar-thumb {
+    background: var(--nav-color);
+}
+
+#dreamReport::-webkit-scrollbar-thumb:hover {
+    background: #555;
+}
+
+/* forms */
+
+/* Activity Form */
 
 #activityForm-container {
     width: 75%;
@@ -144,6 +356,8 @@ nav ul li a:hover::after {
     margin-top: 1rem;
     border-radius: 5px;
 }
+
+/* Sleep Form */
 
 /* #moodSleepForm {
     display: flex;
@@ -191,171 +405,9 @@ nav ul li a:hover::after {
     color: white;
 } */
 
-#sleepContainer, #bodyPicContainer {
-    text-align: center;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-}
+/* RESET BUTTON */
 
-#activityContainer {
-    width: 15vw;
-    border-right: 3px solid var(--nav-color);
-
-    /* background:
-    linear-gradient(to right, var(--nav-color) 5px, transparent 5px) 0 100%,
-    linear-gradient(to top, var(--nav-color) 5px, transparent 5px) 0 100%,
-    linear-gradient(to left, var(--nav-color) 5px, transparent 5px) 100% 0,
-    linear-gradient(to bottom, var(--nav-color) 5px, transparent 5px) 100% 0,
-    linear-gradient(to right, var(--nav-color) 5px, transparent 5px) 0 0,
-    linear-gradient(to top, var(--nav-color) 5px, transparent 5px) 100% 100%,
-    linear-gradient(to left, var(--nav-color) 5px, transparent 5px) 100% 100%,
-    linear-gradient(to bottom, var(--nav-color) 5px, transparent 5px) 0 0; */
-
-    /* background-repeat: no-repeat;
-    background-size: 3rem 3rem; */
-}
-
-#activityContainer img {
-    width: 3vw;
-}
-
-#plusIcon {
-    margin: auto;
-    display: block;
-    margin-top: 3rem;
-}
-
-#activity,
-#activityDuration,
-#kcalBurned {
-    display: flex;
-    margin-left: 2rem;
-    margin-bottom: 2rem;
-    font-family: var(--content-font);
-    font-size: var(--content-font-size);
-} 
-
-#activity_stats {
-    border-bottom: 2px solid var(--nav-color);
-}
-
-#activity {
-    margin-top: 2rem;
-}
-
-#activity p,
-#activityDuration p,
-#kcalBurned p,
-#notes {
-    margin: auto 1rem;
-} 
-
-#notes {
-    margin: 2rem auto;
-}
-
-#dreamReport,
-#activityReport {
-    font-family: var(--content-font);
-    font-size: 2rem;
-    text-align: justify;
-    margin: 1.5rem;
-    max-height: 15vw;
-    max-width: 20vw;
-    overflow: auto;
-    padding-right: 1rem;
-    padding-bottom: 2rem;
-}
-
-#dreamReport::-webkit-scrollbar {
-    width: 5px;
-}
-
-#dreamReport::-webkit-scrollbar-track {
-    background: var(--body-color); 
-}
-
-#dreamReport::-webkit-scrollbar-thumb {
-    background: var(--nav-color);
-}
-
-#dreamReport::-webkit-scrollbar-thumb:hover {
-    background: #555;
-}
-
-#mood-container {
-    outline: 2px solid green;
-}
-
-#mood-container img {
-    width: 3vw;
-}
-
-#bodyPicContainer {
-    grid-column:5/9;
-    grid-row:1/4;
-}
-
-#sleepContainer {
-    grid-column:10/13;
-    grid-row:1/4;
-
-    background:
-    linear-gradient(to right, var(--nav-color) 5px, transparent 5px) 0 100%,
-    linear-gradient(to top, var(--nav-color) 5px, transparent 5px) 0 100%,
-    linear-gradient(to left, var(--nav-color) 5px, transparent 5px) 100% 0,
-    linear-gradient(to bottom, var(--nav-color) 5px, transparent 5px) 100% 0,
-    linear-gradient(to right, var(--nav-color) 5px, transparent 5px) 0 0,
-    linear-gradient(to top, var(--nav-color) 5px, transparent 5px) 100% 100%,
-    linear-gradient(to left, var(--nav-color) 5px, transparent 5px) 100% 100%,
-    linear-gradient(to bottom, var(--nav-color) 5px, transparent 5px) 0 0;
-
-    background-repeat: no-repeat;
-    background-size: 3rem 3rem;
-
-}
-
-#sleepContainer input,
-#sleepContainer label
-{
-    margin-top: 2rem;
-}
-
-#sleepContainer img {
-    width: 4vw;
-}
-
-#sleep-container {
-    display: flex;
-    flex-direction: column;
-    margin-top: 3rem;
-    border-bottom: 2px solid var(--nav-color);
-}
-
-#sleep-container img {
-    margin-left: 2rem;
-}
-
-
-#sleepDuration {
-    display:flex;
-    margin-bottom: 3rem;
-    font-family: var(--content-font);
-    font-size: var(--content-font-size);
-}
-
-#sleepDuration p {
-    margin: auto;
-    margin-left: 2rem;
-}
-
-#dreamCatcherIcon {
-    align-self: center;
-    margin: 2rem auto;
-}
-
-#newDay {
+/* #newDay {
     grid-column:6/8;
     grid-row:5;
     border: 5px solid var(--header-color);
@@ -390,9 +442,10 @@ nav ul li a:hover::after {
 
 #newDay button:hover {
     color: var(--nav-color);
-}
+} */
 
 
+/* About page */
 
 .about-container {
     width: 50%;
@@ -412,6 +465,8 @@ nav ul li a:hover::after {
     letter-spacing: -7px;
     color: var(--nav-color);
 }
+
+/* Footer */
 
 footer {
     text-align: center;
