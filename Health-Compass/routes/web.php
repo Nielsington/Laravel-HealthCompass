@@ -19,6 +19,7 @@ use App\Http\Controllers\ContactController;
 */
 
 Route::get('/', [DashboardController::class, 'show'])->name('dashboard');
+Route::get('/create-activity', [DashboardController::class, 'showActivityForm'])->name('activityForm');
 Route::post('/submit-sleep', [DashboardController::class, 'handleSleepForm']);
 Route::post('/submit-activity', [DashboardController::class, 'handleActivityForm']);
 
