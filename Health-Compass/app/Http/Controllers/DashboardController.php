@@ -17,6 +17,11 @@ class DashboardController extends Controller
         return view('dashboard', ['sleepData'=>$sleepData, 'activityData'=>$activityData]);
     }
 
+    public function showActivityForm ()
+    {
+        return view('activityForm');
+    }
+
     public function handleSleepForm(Request $request) 
     {
         $sleepData = new SleepMood();
