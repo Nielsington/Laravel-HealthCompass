@@ -11,6 +11,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Dongle:wght@300&display=swap" rel="stylesheet">
     @yield('title')
     @vite('resources/css/app.css')
+    @vite('resources/js/app.js')
 </head>
 <body>
     @include('./includes/header')
