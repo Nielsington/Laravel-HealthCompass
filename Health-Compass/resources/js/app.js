@@ -11,6 +11,8 @@ const moodFormSwitch = () => {
 
     const form = document.createElement("form");
     form.setAttribute("id", 'moodForm');
+    form.setAttribute("action", '/submit-mood');
+    form.setAttribute("method", 'post');
 
     const label = document.createElement("label");
     label.innerHTML = "How you feelin' buddy?";
