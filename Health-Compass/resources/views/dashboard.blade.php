@@ -12,12 +12,11 @@
             diner
         </div>
     </div> --}}
-
-    <div class='containers-wrap'>
+    <div id="flex-wrap">
         <div id='activityContainer'>
             @if(isset($activityData))
-                  {{-- <p>Form has been submitted</p> --}}
-                  <div id='activity_stats'>
+                {{-- <p>Form has been submitted</p> --}}
+                <div id='activity_stats'>
                     <div id="activity">
                         <img src="{{asset('./images/sport.png')}}" alt="sport icon">
                         <p>{{$activityData->Activity_type}} </p>
@@ -26,7 +25,7 @@
                         <img src="{{asset('./images/stopwatch.png')}}" alt="stopwatch icon">
                         <p>{{$activityData->Activity_minutes}} minutes</p>
                     </div>
-                    <div id="kcal">
+                    <div id="kcalBurned">
                         <img src="{{asset('./images/kcal.png')}}" alt="kcal icon">
                         <p>{{$activityData->Kcal_burned}} calories burned!</p>
                     </div>
@@ -35,33 +34,30 @@
                 <img id="notes" src="{{asset('./images/notes.png')}}" alt="notes icon">
                 <p id='activityReport'>{{$activityData->Notes}}</p>
             @else
-                <form class="dashboard-forms" action="/submit-activity" method="POST">
-                    @csrf
-                    <label for="activity-type">Sport</label>
-                    <input type="text" name="activity-type" id="activity-type">
-                    <label for="activity-duration">Duration (minutes)</label>
-                    <input type="text" name="activity-duration" id="activity-duration">
-                    <label for="kcal">Calories burned</label>
-                    <input type="text" name="kcal" id="kcal">
-                    <label for="notes">Notes</label>
-                    <textarea name="dream" id="dream" cols="30" rows="10" placeholder="Any additional notes?"></textarea>
-                    <button type="submit" id="submit-activity">SAVE</button>
-                </form>
+                {{-- TODO: Add plus sign logo to go to activityForm view --}}
+                <a href="{{route('activityForm')}}"><img id="plusIcon" src="{{asset('./images/plus.png')}}" alt="Add sign icon"></a>
             @endif
         </div>
 
+    <div id='grid-container'>
         <div id='bodyPicContainer'>
             bodyPic
         </div>
 
+        <div id="mood-container">
+            @if(isset($moodData))
+                <img src="{{asset('./images/mood.png')}}" alt="mood icon">
+                <p>{{$sleepData->mood}} mood</p>
+            @else
+                <img src="./images/plus.png" alt="Add sign icon" id="addMood">
+            @endif
+        </div>
+
+        {{-- TODO: style the form you generate with javascript --}}
+        
         <div id='sleepContainer'>
             @if(isset($sleepData))
-                {{-- <p>Form has been submitted</p> --}}
-                <div id='mood_sleep'>
-                    <div id="mood-container">
-                        <img src="{{asset('./images/mood.png')}}" alt="mood icon">
-                        <p>{{$sleepData->mood}} mood</p>
-                    </div>
+                <div id='sleep-container'>
                     <div id="sleepDuration">
                         <img src="{{asset('./images/sleepDuration.png')}}" alt="sleep duration icon">
                         <p>{{$sleepData->hours_sleep}} hours of sleep</p>
@@ -71,7 +67,7 @@
                 <img id="dreamCatcherIcon" src="{{asset('./images/dream.png')}}" alt="dream catcher icon">
                 <p id='dreamReport'>{{$sleepData->dream_description}}</p>
             @else
-                <form class="dashboard-forms" action="/submit-sleep" method="POST">
+                {{-- <form id="moodSleepForm" action="/submit-sleep" method="POST">
                     @csrf
                     <label for="mood">Mood</label>
                     <input type="text" name="mood" id="mood">
@@ -80,7 +76,7 @@
                     <label for="dream">Dream</label>
                     <textarea name="dream" id="dream" cols="30" rows="10" placeholder="If you had a dream, describe it here"></textarea>
                     <button type="submit" id="submit-sleep">SAVE</button>
-                </form>
+                </form> --}}
             @endif
             
         </div>
@@ -90,4 +86,5 @@
             </form>
         </div>
     </div>
+</div>
 @endsection
