@@ -20,11 +20,11 @@ use App\Http\Controllers\ContactController;
 
 Route::get('/', [DashboardController::class, 'show'])->name('dashboard');
 Route::get('/create-activity', [DashboardController::class, 'showActivityForm'])->name('activityForm');
-Route::post('/submit-sleep', [DashboardController::class, 'handleSleepForm']);
+// Route::post('/submit-sleep', [DashboardController::class, 'handleSleepForm']);
 Route::post('/submit-activity', [DashboardController::class, 'handleActivityForm']);
 
 
-Route::get('/new-day', [NewDayController::class, 'show'])->name('newDay');
-Route::get('/profile', [UserProfileController::class, 'show'])->name('userProfile');
 Route::get('/contact', [ContactController::class, 'show'])->name('contact');
 Route::get('/about', [AboutController::class, 'show'])->name('about');
+
+// TODO: Make route for /submit-mood
