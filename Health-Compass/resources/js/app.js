@@ -22,6 +22,7 @@ const moodFormSwitch = () => {
     input.setAttribute("type", "text");
     input.setAttribute("name", "moodInput");
     input.setAttribute("id", "moodInput");
+    input.setAttribute("placeholder", "Enter mood");
 
     const submitBtn = document.createElement("button");
     submitBtn.setAttribute("type", "submit");
