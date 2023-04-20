@@ -12,7 +12,7 @@
         <input type="text" name="kcal" id="kcal">
         <label for="notes">Notes</label>
         <textarea name="dream" id="dream" cols="30" rows="10" placeholder="Any additional notes?"></textarea>
-        <button type="submit" id="submit-activity">SAVE</button>
+        <button type="submit">SAVE</button>
     </form>
 </div>
 @endsection
