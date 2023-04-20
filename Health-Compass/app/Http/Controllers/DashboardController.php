@@ -1,5 +1,5 @@
 <?php
-
+// TODO: add validation for every form
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
@@ -17,21 +17,11 @@ class DashboardController extends Controller
         return view('dashboard', ['sleepData'=>$sleepData, 'activityData'=>$activityData]);
     }
 
+    //Activity Form
+
     public function showActivityForm ()
     {
         return view('activityForm');
-    }
-
-    public function handleSleepForm(Request $request) 
-    {
-        $sleepData = new SleepMood();
-
-        $sleepData->mood = $request['mood'];
-        $sleepData->hours_sleep = $request['sleepHours'];
-        $sleepData->dream_description = $request['dream'];
-        $sleepData->save();
-
-        return redirect()->route('dashboard');
     }
 
     public function handleActivityForm(Request $request)
@@ -47,15 +37,34 @@ class DashboardController extends Controller
         return redirect()->route('dashboard');
     }
 
+    private function fetchActivityData()
+    {
+        $activityData = ActivityLog::whereDate('created_at', Carbon::today())->get();
+        return $activityData;
+    }
+
+    //Sleep Form
+
+    public function showSleepForm()
+    {
+        return view('sleepForm');
+    }
+
+    public function handleSleepForm(Request $request) 
+    {
+        $sleepData = new SleepMood();
+
+        $sleepData->mood = $request['mood'];
+        $sleepData->hours_sleep = $request['sleepHours'];
+        $sleepData->dream_description = $request['dream'];
+        $sleepData->save();
+
+        return redirect()->route('dashboard');
+    }
+
     private function fetchSleepData()
     {
         $sleepData = SleepMood::whereDate('created_at', Carbon::today())->first();
         return $sleepData;
-    }
-
-    private function fetchActivityData()
-    {
-        $activityData = ActivityLog::whereDate('created_at', Carbon::today())->first();
-        return $activityData;
     }
 }
