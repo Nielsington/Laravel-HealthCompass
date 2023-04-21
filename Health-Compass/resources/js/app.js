@@ -16,12 +16,12 @@ const moodFormSwitch = () => {
 
     const label = document.createElement("label");
     label.innerHTML = "How you feelin' buddy?";
-    label.setAttribute("for", "moodInput")
+    label.setAttribute("for", "mood")
 
     const input = document.createElement("input");
     input.setAttribute("type", "text");
-    input.setAttribute("name", "moodInput");
-    input.setAttribute("id", "moodInput");
+    input.setAttribute("name", "mood");
+    input.setAttribute("id", "mood");
     input.setAttribute("placeholder", "Enter mood");
 
     const submitBtn = document.createElement("button");
