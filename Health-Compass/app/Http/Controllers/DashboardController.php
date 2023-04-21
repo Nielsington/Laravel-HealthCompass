@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Models\SleepMood;
+use App\Models\SleepLog;
 use App\Models\ActivityLog;
 use Carbon\Carbon;
 
@@ -52,9 +52,8 @@ class DashboardController extends Controller
 
     public function handleSleepForm(Request $request) 
     {
-        $sleepData = new SleepMood();
+        $sleepData = new SleepLog();
 
-        $sleepData->mood = $request['mood'];
         $sleepData->hours_sleep = $request['sleepHours'];
         $sleepData->dream_description = $request['dream'];
         $sleepData->save();
@@ -64,7 +63,7 @@ class DashboardController extends Controller
 
     private function fetchSleepData()
     {
-        $sleepData = SleepMood::whereDate('created_at', Carbon::today())->first();
+        $sleepData = SleepLog::whereDate('created_at', Carbon::today())->first();
         return $sleepData;
     }
 }
