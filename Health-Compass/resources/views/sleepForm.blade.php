@@ -4,8 +4,6 @@
     <div id="sleepForm-container">
         <form id="moodSleepForm" action="/submit-sleep" method="POST">
             @csrf
-            <label for="mood">Mood</label>
-            <input type="text" name="mood" id="mood">
             <label for="sleepHours">Sleep duration</label>
             <input type="text" name="sleepHours" id="sleepHours">
             <label for="dream">Dream</label>
