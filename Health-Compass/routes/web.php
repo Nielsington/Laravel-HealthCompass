@@ -26,7 +26,7 @@ Route::post('/submit-activity', [DashboardController::class, 'handleActivityForm
 Route::get('/create-sleep', [DashboardController::class, 'showSleepForm']);
 
 
-// Route::post('/submit-sleep', [DashboardController::class, 'handleSleepForm']);
+Route::post('/submit-sleep', [DashboardController::class, 'handleSleepForm']);
 
 
 Route::get('/contact', [ContactController::class, 'show'])->name('contact');
