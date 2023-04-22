@@ -36,7 +36,8 @@ Route::get('/{ActivityLog:Activity_type', function(ActivityLog $Activity_type)
         return view('allActivities', ['Activities' => $Activities]);
     })->name('all-activities');
 
+Route::post('/submit-steps', [DashboardController::class, 'handleStepsForm']);
 
-// TODO: Make route for /submit-mood
-// TODO: Make route for /submit-steps
+Route::post('/submit-mood', [DashboardController::class, 'handleMoodForm']);
+
 //TODO: detail page ->name('detail');
