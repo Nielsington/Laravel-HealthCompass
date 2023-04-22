@@ -145,20 +145,27 @@ nav ul li a:hover::after {
 
 #activity-container img {
     width: 2.5vw;
-    cursor: pointer;
-}
-
-#addActivityIcon {
-    margin: auto;
-    display: block;
-    margin-top: 2rem;
 }
 
 #addActivity {
     width: 100%;
+    min-height: 10vh;
+    max-height: 10vh;
     display: block;
     padding-bottom: 2rem;
     border-bottom: 2px solid var(--nav-color);
+}
+
+#addActivity img {
+    margin: 0 auto 2rem;
+    display: block;
+    margin-top: 2rem;
+    transition: width 0.25s linear;
+}
+
+#addActivity img:hover {
+    width: 2.8vw;
+    cursor: pointer;
 }
 
 #activity_stats {
@@ -168,7 +175,6 @@ nav ul li a:hover::after {
 #activity_stats img,
 #last_activity_stats img {
     object-fit: contain;
-    cursor: default;
 }
 
 #activity {
@@ -180,7 +186,7 @@ nav ul li a:hover::after {
 #kcalBurned {
     display: flex;
     margin-left: 1rem;
-    margin-bottom: 2rem;
+    margin-bottom: 1rem;
     font-family: var(--content-font);
     font-size: 2rem;
 } 
@@ -193,36 +199,142 @@ nav ul li a:hover::after {
     padding-top: 0.5rem;
 } 
 
-#activity_stats form button,
-#last_activity_stats form button {
-    background: transparent;
-    font-size: 1rem;
-    margin: 0 0 2rem 5rem;
+#activity_stats a,
+#last_activity_stats a {
+    display: inline-block;
+    font-size: 1.5rem;
+    font-family: var(--content-font);
+    margin: auto 0 1rem 9rem ;
     border: none;
     cursor: pointer;
     width: 6rem;
     color: var(--nav-color);
+    text-align: center;
+    position:relative;
+    text-decoration: none;
 }
 
-#activity_stats form button:hover,
-#last_activity_stats form button:hover {
-    border-left: 2px solid var(--nav-color);
-    border-right: 2px solid var(--nav-color);
+#activity_stats a::after,
+#last_activity_stats a::after {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 2px;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: var(--nav-color);
+    transition: width 0.25s ease-out, opacity 0.5s ease-out;
+    opacity: 0;
+}
+
+#activity_stats a:hover::after,
+#last_activity_stats a:hover::after {
+    width: 100%;
+    opacity: 1;
 }
 
 #activity-container::-webkit-scrollbar {
     display: none;
 }
 
+/* Activity detail */
+
+#cards-container {
+    display: flex;
+    gap: 3rem;
+    margin: auto;
+    flex-wrap: wrap;
+    font-family: var(--content-font);
+}
+
+.activity-card {
+    width: 20vw;
+    max-height: 70vh;
+    display: flex;
+    flex-direction: column;
+    background: var(--header-color);
+    overflow: hidden;
+    border-radius: 5px;
+    box-shadow: 0px 0px 5px 2px var(--nav-color);
+}
+
+.activity-card img {
+    width: 3vw;
+    object-fit: contain;
+}
+
+.activity-card h3 {
+    color: var(--nav-color);
+    font-size: 3.5rem;
+    text-align: center;
+}
+
+.activity-card p {
+    color: white;
+    margin-top: 1rem;
+    font-size: 2rem;
+    margin: auto;
+}
+
+.activity-title,
+.activity-duration,
+.activity-kcal {
+    display: flex;
+    margin: 0.5rem;
+}
+
+.activity-kcal {
+    padding-bottom: 1rem;
+    border-bottom: 2px solid var(--nav-color);
+}
+
+.activity-title {
+    display: block;
+    text-align: center;
+}
+
+.activity-title img,
+.activity-kcal img {
+    margin: 0.5rem;
+}
+
+.activity-duration img
+{
+    text-align: left;
+}
+
+
+.notes {
+    display: flex;
+    flex-direction: column;
+    text-align: justify;
+    color: white;
+}
+
+.notes img {
+    width: 2.5vw;
+    align-self: center;
+    margin: 1rem auto 1rem;
+}
+
+.notes p {
+    font-size: 1.7rem;
+    line-height: 2rem;
+    padding: 1rem 2rem;
+}
+
+
+
 /* Main */
 
 #grid-container {
     display: grid;
-    grid-template-columns: repeat(12, 1fr);
-    grid-auto-rows: minmax(10px, auto);
+    grid-template-columns: repeat(12, aut);
+    grid-auto-rows: minmax(10àpx, auto);
     min-width: 80vw;
     max-width: 80vw;
-    grid-gap: 4.5rem;
+    grid-gap: 3rem;
     margin: auto;
     color: white;
     margin-top: 2rem;
@@ -231,8 +343,7 @@ nav ul li a:hover::after {
 /* Weather widget */
 
 #weather-widget {
-    max-width: 15rem;
-    max-height: 10rem;
+    max-width: 10vw;
     display: flex;
     overflow: hidden;
     grid-column:1/3;
@@ -244,7 +355,11 @@ nav ul li a:hover::after {
 /* Step count */
 
 #stepCount {
-    grid-column:1/3;
+    max-width: 10vw;
+    max-height: 20vh;
+    display: flex;
+    flex-direction: column;
+    grid-column:1;
     grid-row:2;
     background: var(--header-color);
     border-radius: 5px;
@@ -254,12 +369,11 @@ nav ul li a:hover::after {
 #stepCount form {
     display: flex;
     justify-content: center;
-    margin-bottom: 1rem
+    margin-bottom: 1.5rem;
 }
 
 #stepCount p {
     text-align: center;
-    margin: 0.5rem;
     font-family: var(--content-font);
     font-size: var(--content-font-size);
 }
@@ -288,7 +402,9 @@ nav ul li a:hover::after {
 /* Kcal count */
 
 #kcalCount {
-    grid-column:1/4;
+    max-width: 10vw;
+    max-height: 15vh;
+    grid-column:1/3;
     grid-row:3;
     background: var(--header-color);
     border-radius: 5px;
@@ -305,7 +421,9 @@ nav ul li a:hover::after {
 /* Mood */
 
 #mood-container {
-    grid-column:10/13;
+    min-height: 20vh;
+    max-height: 20vh;
+    grid-column:12;
     grid-row:1;
     background: var(--header-color);
     border-radius: 5px;
@@ -318,13 +436,19 @@ nav ul li a:hover::after {
 
 #mood-container p:first-of-type {
     color: var(--nav-color);
-    margin: auto;
+    margin: 0.5rem auto 2rem;
 }
 
 #mood-container img {
     width: 3vw;
     margin: 0 auto 2rem;
     cursor: pointer;
+    transition: width 0.25s linear;
+
+}
+
+#mood-container img:hover {
+    width: 3.3vw;
 }
 
 #mood-container form {
@@ -368,8 +492,8 @@ nav ul li a:hover::after {
 #sleep-container {
     display: flex;
     flex-direction: column;
-    grid-column:10/13;
-    grid-row:2/4;
+    grid-column:12;
+    grid-row:2/ span 3;
 
     background: var(--header-color);
     border-radius: 5px;
@@ -378,7 +502,7 @@ nav ul li a:hover::after {
     font-size: var(--content-font-size);
 }
 
-#sleep-container p:first-of-type {
+#dreamCatcherTitle {
     color: var(--nav-color);
     margin: 0.5rem auto;
 }
@@ -396,31 +520,37 @@ nav ul li a:hover::after {
 
 #sleepDuration {
     display:flex;
-    margin-bottom: 3rem;
     font-family: var(--content-font);
     font-size: var(--content-font-size);
 }
 
 #sleepDuration p {
-    margin: auto;
-    margin-left: 2rem;
+    padding-top: 1.7rem;
+    margin: 0.5rem auto;
+
+}
+
+#sleep-container img {
+    width: 3vw;
+    object-fit: contain;
+    margin: auto
 }
 
 #dreamCatcherIcon {
     align-self: center;
-    margin: 2rem auto;
 }
 
 #dreamReport {
     font-family: var(--content-font);
-    font-size: 2rem;
+    font-size: 1.6rem;
     text-align: justify;
-    margin: 1.5rem;
+    margin: 1rem 0 2rem 2rem;
     max-height: 15vw;
     max-width: 20vw;
     overflow: auto;
-    padding-right: 1rem;
+    padding-right: 1.2rem;
     padding-bottom: 2rem;
+
 }
 
 #dreamReport::-webkit-scrollbar {
@@ -429,6 +559,7 @@ nav ul li a:hover::after {
 
 #dreamReport::-webkit-scrollbar-track {
     background: var(--body-color); 
+    margin-top: 0.7rem;
 }
 
 #dreamReport::-webkit-scrollbar-thumb {
