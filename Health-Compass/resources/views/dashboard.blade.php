@@ -17,7 +17,7 @@
         <div id='addActivity-container'>
             <p id='activity-container-title'>Today's activities</p>
             <a id='addActivity' href="{{route('activityForm')}}">
-                <img id="addActivityIcon" src="{{asset('./images/plus.png')}}" alt="Add sign icon">
+                <img src="{{asset('./images/plus.png')}}" alt="Add sign icon">
             </a>
         </div>
         @if(isset($activityData))
@@ -39,10 +39,8 @@
                             <img src="{{asset('./images/kcal.png')}}" alt="kcal icon">
                             <p>{{$activity->Kcal_burned}} calories</p>
                         </div>
-                        {{-- TODO: detail page --}}
-                        <form action="/activity-details" method="get">
-                            <button>See details</button>
-                        </form>
+                        {{-- Make detail page --}}
+                        {{-- <a href="{{route('detail')}}">See details</a> --}}
                     </div>
             @endforeach
         @else
@@ -74,7 +72,7 @@
         </section>
 
         <div id="mood-container">
-            <p>Mood tracker</p>
+            <p>Mood Tracker</p>
             @if(isset($moodData))
                 <img src="{{asset('./images/mood.png')}}" alt="mood icon">
                 <p>{{$sleepData->mood}} mood</p>
@@ -84,10 +82,11 @@
         </div>
 
         <div id='sleep-container'>
-            <p>Dream Catcher</p>
+            <p id="dreamCatcherTitle">Sleep Tracker</p>
+            <img src="{{asset('./images/sleepDuration.png')}}" alt="sleep duration icon">
+
             @if(isset($sleepData))
                     <div id="sleepDuration">
-                        <img src="{{asset('./images/sleepDuration.png')}}" alt="sleep duration icon">
                         <p>{{$sleepData->hours_sleep}} hours of sleep</p>
                     </div>
                 {{-- TODO:if dream = NULL then <p>No dream to report</p> --}}
