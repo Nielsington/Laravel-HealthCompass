@@ -241,22 +241,24 @@ nav ul li a:hover::after {
 /* Activity detail */
 
 #cards-container {
+    width: 80vw;
+    margin: auto;
     display: flex;
     gap: 3rem;
-    margin: auto;
-    flex-wrap: wrap;
     font-family: var(--content-font);
+    overflow-x: scroll;
 }
 
 .activity-card {
-    width: 20vw;
-    max-height: 70vh;
+    min-width: 20vw;
+    min-height: 60vh;
+    max-height: 60vh;
     display: flex;
     flex-direction: column;
     background: var(--header-color);
-    overflow: hidden;
     border-radius: 5px;
     box-shadow: 0px 0px 5px 2px var(--nav-color);
+    margin: 2rem;
 }
 
 .activity-card img {
@@ -322,6 +324,20 @@ nav ul li a:hover::after {
     font-size: 1.7rem;
     line-height: 2rem;
     padding: 1rem 2rem;
+}
+
+#cards-container::-webkit-scrollbar {
+    height: 5px;
+    width: 0;
+}
+
+#cards-container::-webkit-scrollbar-thumb {
+    background-color: var(--nav-color);
+}
+
+#cards-container::-webkit-scrollbar-track {
+    background-color: var(--body-color);
+    max-width: 30vw;
 }
 
 
@@ -429,25 +445,24 @@ nav ul li a:hover::after {
     border-radius: 5px;
     box-shadow: 0px 0px 5px 2px var(--nav-color);
     font-family: var(--content-font);
-    font-size: 2rem;
     display:flex;
     flex-direction: column;
 }
 
-#mood-container p:first-of-type {
+#mood-container > p:first-child {
     color: var(--nav-color);
-    margin: 0.5rem auto 2rem;
+    text-align: center;
+    font-size: 2.5rem;
 }
 
-#mood-container img {
+#addMoodIcon {
     width: 3vw;
-    margin: 0 auto 2rem;
+    margin: 2rem auto 2rem;
     cursor: pointer;
     transition: width 0.25s linear;
-
 }
 
-#mood-container img:hover {
+#addMoodIcon:hover {
     width: 3.3vw;
 }
 
@@ -485,6 +500,24 @@ nav ul li a:hover::after {
     color: var(--nav-color);
     background-color: var(--header-color);
     border: 3px solid var(--nav-color);
+}
+
+#mood-data-container {
+    display: flex;
+    margin: 1rem 0 0 2rem;
+    
+}
+
+#mood-data-container p {
+    font-size: 3rem;
+    align-self: center;
+    padding-top: 0.5rem;
+}
+
+#mood-data-container img {
+    width: 3.5vw;
+    object-fit: contain;
+    margin: 0 4rem 0 2rem;
 }
 
 /* Sleep */
