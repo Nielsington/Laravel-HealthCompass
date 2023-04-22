@@ -43,9 +43,6 @@
                         {{-- <a href="{{route('detail')}}">See details</a> --}}
                     </div>
             @endforeach
-        @else
-            {{-- TODO: Add plus sign logo to go to activityForm view --}}
-            <a href="{{route('activityForm')}}"><img id="addActivity" src="{{asset('./images/plus.png')}}" alt="Add sign icon"></a>
         @endif
     </aside>
     <main id='grid-container'>
@@ -59,8 +56,9 @@
 
         <section id='stepCount'>
             <p>Daily steps</p>
-            <p>/10.000</p>
+            <p>{{$stepsData}} / 10.000</p>
             <form action="/submit-steps" method="post">
+                @csrf
                 <input type="text" name="stepsInput" placeholder="Enter steps">
                 <button type="submit">+</button>
             </form>
@@ -74,10 +72,12 @@
         <div id="mood-container">
             <p>Mood Tracker</p>
             @if(isset($moodData))
-                <img src="{{asset('./images/mood.png')}}" alt="mood icon">
-                <p>{{$sleepData->mood}} mood</p>
+                <div id='mood-data-container'>
+                    <img src="{{asset('./images/mood.png')}}" alt="mood icon">
+                    <p>{{$moodData->mood}} mood</p>
+                </div>
             @else
-                <img src="./images/plus.png" alt="Add sign icon" id="addMood">
+                <img src="./images/plus.png" alt="Add sign icon" id="addMoodIcon">
             @endif
         </div>
 
