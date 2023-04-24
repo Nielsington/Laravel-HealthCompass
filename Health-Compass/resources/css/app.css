@@ -372,7 +372,6 @@ nav ul li a:hover::after {
 
 #stepCount {
     max-width: 10vw;
-    max-height: 20vh;
     display: flex;
     flex-direction: column;
     grid-column:1;
@@ -385,7 +384,6 @@ nav ul li a:hover::after {
 #stepCount form {
     display: flex;
     justify-content: center;
-    margin-bottom: 1.5rem;
 }
 
 #stepCount p {
@@ -404,7 +402,7 @@ nav ul li a:hover::after {
     max-height: 1.8rem;
     font-family: var(--content-font);
     text-align: center;
-    margin:auto auto auto 1.5rem;
+    margin: auto auto;
 }
 
 #stepCount button {
@@ -412,9 +410,10 @@ nav ul li a:hover::after {
     border: none;
     color: var(--nav-color);
     font-size: 2.5rem;
-    margin: auto 1rem;
     cursor: pointer;
+    margin-right: 1rem;
 }
+
 /* Kcal count */
 
 #kcalCount {
@@ -438,7 +437,6 @@ nav ul li a:hover::after {
 
 #mood-container {
     min-height: 20vh;
-    max-height: 20vh;
     grid-column:12;
     grid-row:1;
     background: var(--header-color);
@@ -457,7 +455,7 @@ nav ul li a:hover::after {
 
 #addMoodIcon {
     width: 3vw;
-    margin: 2rem auto 2rem;
+    margin: 1rem auto 2rem;
     cursor: pointer;
     transition: width 0.25s linear;
 }
@@ -475,6 +473,7 @@ nav ul li a:hover::after {
 
 #mood-container label {
     color: var(--text-color);
+    font-size: 2rem;
 }
 
 #mood-container input {
@@ -504,8 +503,6 @@ nav ul li a:hover::after {
 
 #mood-data-container {
     display: flex;
-    margin: 1rem 0 0 2rem;
-    
 }
 
 #mood-data-container p {
