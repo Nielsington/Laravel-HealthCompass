@@ -1,6 +1,6 @@
 import './bootstrap';
 
-const addButton = document.getElementById('addMood');
+const addButton = document.getElementById('addMoodIcon');
 const xScrollCards = document.getElementById('cards-container');
 
 const moodFormSwitch = () => {
@@ -42,11 +42,12 @@ const moodFormSwitch = () => {
     form.appendChild(submitBtn);
 }
 
-xScrollCards.addEventListener('wheel', (e)=> {
-    e.preventDefault();
-    xScrollCards.scrollLeft += e.deltaY;
-});
-
+if(xScrollCards){
+    xScrollCards.addEventListener('wheel', (e)=> {
+        e.preventDefault();
+        xScrollCards.scrollLeft += e.deltaY;
+    });
+}
 addButton.addEventListener('click', ()=>{
     moodFormSwitch();
 });
