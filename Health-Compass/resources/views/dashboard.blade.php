@@ -74,7 +74,11 @@
             @if(isset($moodData))
                 <div id='mood-data-container'>
                     <img src="{{asset('./images/mood.png')}}" alt="mood icon">
-                    <p>{{$moodData->mood}} mood</p>
+                    @if (isset($moodData))
+                        <p>{{$moodData->mood}} mood</p>
+                    @else  
+                        <p>No mood entered!</p>
+                    @endif
                 </div>
             @else
                 <img src="./images/plus.png" alt="Add sign icon" id="addMoodIcon">
@@ -83,8 +87,6 @@
 
         <div id='sleep-container'>
             <p id="dreamCatcherTitle">Sleep Tracker</p>
-            <img src="{{asset('./images/sleepDuration.png')}}" alt="sleep duration icon">
-
             @if(isset($sleepData))
                     <div id="sleepDuration">
                         <p>{{$sleepData->hours_sleep}} hours of sleep</p>
