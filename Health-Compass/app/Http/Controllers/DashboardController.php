@@ -8,10 +8,7 @@ use App\Models\ActivityLog;
 use App\Models\MoodLog;
 use App\Models\StepsLog;
 use Carbon\Carbon;
-use Illuminate\Routing\Redirector;
-use Illuminate\Http\RedirectResponse;
 use Illuminate\Support\Collection;
-use Ramsey\Uuid\Type\Integer;
 
 class DashboardController extends Controller
 {
@@ -36,7 +33,7 @@ class DashboardController extends Controller
         return view('activityForm');
     }
 
-    public function handleActivityForm(Request $request): RedirectResponse
+    public function handleActivityForm(Request $request)
     {
         $activityData = new ActivityLog();
 
@@ -57,7 +54,7 @@ class DashboardController extends Controller
 
     //Steps Form
 
-    public function handleStepsForm(Request $request): RedirectResponse
+    public function handleStepsForm(Request $request)
     {
         $steps = new StepsLog();
         $steps->steps = $request['stepsInput'];
@@ -78,7 +75,7 @@ class DashboardController extends Controller
 
     //Mood Form
 
-    public function handleMoodForm(Request $request): Redirector
+    public function handleMoodForm(Request $request)
     {
         $mood = new MoodLog();
         $mood->mood = $request['mood'];
@@ -87,10 +84,11 @@ class DashboardController extends Controller
         return redirect('/');
     }
 
-    private function fetchMoodData(): MoodLog
+    private function fetchMoodData()
     {
         $moodData = MoodLog::whereDate('created_at', Carbon::today())->first();
-        return $moodData;
+        if ($moodData)
+            return $moodData;
     }
 
     //Sleep Form
@@ -100,7 +98,7 @@ class DashboardController extends Controller
         return view('sleepForm');
     }
 
-    public function handleSleepForm(Request $request): RedirectResponse 
+    public function handleSleepForm(Request $request) 
     {
         $sleepData = new SleepLog();
 
@@ -111,9 +109,11 @@ class DashboardController extends Controller
         return redirect()->route('dashboard');
     }
 
-    private function fetchSleepData(): SleepLog
+    private function fetchSleepData()
     {
         $sleepData = SleepLog::whereDate('created_at', Carbon::today())->first();
-        return $sleepData;
+
+        if($sleepData)
+            return $sleepData;
     }
 }
